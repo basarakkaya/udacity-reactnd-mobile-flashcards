@@ -1,3 +1,7 @@
+import { AsyncStorage } from "react-native";
+import * as Permissions from "expo-permissions";
+import * as Notifications from "expo-notifications";
+
 const NOTIFICATION_KEY = "MobileFlashcards:Notifications";
 
 export function formatCard(question, answer) {
@@ -16,12 +20,35 @@ export function formatDeck(title) {
   };
 }
 
+export function clearLocalNotification() {
+  return AsyncStorage.removeItem(NOTIFICATION_KEY).then(
+    Notifications.cancelAllScheduledNotificationsAsync
+  );
+}
+
+function createNotification() {
+  return {
+    title: "Take a Quiz!",
+    body: "Don't forget to train on your decks and take quizzes!",
+    ios: { sound: true },
+    android: {
+      sound: true,
+      priority: "high",
+      sticky: false,
+      vibrate: true,
+    },
+  };
+}
+
 export function setLocalNotification() {
+  debugger;
   AsyncStorage.getItem(NOTIFICATION_KEY)
     .then(JSON.parse)
     .then((data) => {
+      console.log("getdata: ", data);
       if (data === null) {
         Permissions.askAsync(Permissions.NOTIFICATIONS).then(({ status }) => {
+          console.log("status", status);
           if (status === "granted") {
             Notifications.cancelAllScheduledNotificationsAsync();
 

@@ -2,11 +2,23 @@
   "name": "udacity-reactnd-mobile-flashcards",
   "displayName": "udacity-reactnd-mobile-flashcards",
   "expo": {
-    "name": "udacity-reactnd-mobile-flashcards",
-    "slug": "udacity-reactnd-mobile-flashcards",
+    "name": "MobileFlashcards",
+    "slug": "MobileFlashcards",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "orientation": "portrait",
+    "description": "Train yourself with Flashcards!",
+    "icon": "https://static.thenounproject.com/png/219513-200.png",
+    "notification": {
+      "icon": "https://static.thenounproject.com/png/219513-200.png"
+    },
+    "ios": {
+      "bundleIdentifier": "org.basarakkaya.mobileflashcards"
+    },
+    "android": {
+      "package": "org.basarakkaya.mobileflashcards",
+      "useNextNotificationsApi": true
+    },
+    "assetBundlePatterns": ["**/*"],
+    "sdkVersion": "38.0.0"
   }
 }
