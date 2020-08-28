@@ -16,6 +16,9 @@ class NewDeck extends Component {
     value: "",
   };
 
+  /**
+   * @description Submits the new deck.
+   */
   submit = () => {
     const { dispatch } = this.props;
     const { value } = this.state;
@@ -25,6 +28,9 @@ class NewDeck extends Component {
     this.toDecks();
   };
 
+  /**
+   * @description Navigates back to the "Decks" tab.
+   */
   toDecks = () => {
     this.props.navigation.dispatch(
       CommonActions.goBack({

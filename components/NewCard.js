@@ -26,6 +26,9 @@ class NewCard extends Component {
     });
   };
 
+  /**
+   * @description Submits the new card to the related deck
+   */
   submit = () => {
     const { dispatch, deckId } = this.props;
     const { question, answer } = this.state;
@@ -35,6 +38,9 @@ class NewCard extends Component {
     this.toDeck();
   };
 
+  /**
+   * @description Navigates back to the deck
+   */
   toDeck = () => {
     this.props.navigation.dispatch(CommonActions.goBack());
   };

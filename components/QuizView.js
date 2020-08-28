@@ -12,6 +12,10 @@ class QuizView extends Component {
     showResults: false,
   };
 
+  /**
+   * @description Submits the answer
+   * @param {boolean} isCorrect - Indicates whether the answer is correct or not
+   */
   answerQuestion = (isCorrect) => {
     this.setState((state) => ({
       currentQuestion:
@@ -23,12 +27,9 @@ class QuizView extends Component {
     }));
   };
 
-  flipCard = () => {
-    this.setState((state) => ({
-      showAnswer: !state.showAnswer,
-    }));
-  };
-
+  /**
+   * @description Resets the quiz state and restarts the quiz.
+   */
   restart = () => {
     this.setState({
       currentQuestion: 1,

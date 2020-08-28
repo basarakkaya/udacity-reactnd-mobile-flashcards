@@ -4,6 +4,11 @@ import * as Notifications from "expo-notifications";
 
 const NOTIFICATION_KEY = "MobileFlashcards:Notifications";
 
+/**
+ * @description Returns a formatted card with given arguments
+ * @param {string} question - Question of the card
+ * @param {string} answer - Answer of the card
+ */
 export function formatCard(question, answer) {
   return {
     question,
@@ -11,6 +16,10 @@ export function formatCard(question, answer) {
   };
 }
 
+/**
+ * @description Returns a formatted deck with given deck title
+ * @param {string} title - Title of the deck
+ */
 export function formatDeck(title) {
   return {
     [title]: {
@@ -20,12 +29,18 @@ export function formatDeck(title) {
   };
 }
 
+/**
+ * @description Clears the scheduled local notifications set by this app
+ */
 export function clearLocalNotification() {
   return AsyncStorage.removeItem(NOTIFICATION_KEY).then(
     Notifications.cancelAllScheduledNotificationsAsync
   );
 }
 
+/**
+ * @description Creates a local notification content configuration object
+ */
 function createNotification() {
   return {
     title: "Take a Quiz!",
@@ -40,6 +55,9 @@ function createNotification() {
   };
 }
 
+/**
+ * @description Sets a scheduled local notification
+ */
 export function setLocalNotification() {
   debugger;
   AsyncStorage.getItem(NOTIFICATION_KEY)

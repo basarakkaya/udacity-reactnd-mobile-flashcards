@@ -15,6 +15,9 @@ class Card extends Component {
     showAnswer: false,
   };
 
+  /**
+   * @description Toggles display between question and answer of the card
+   */
   flipCard = () => {
     this.setState((state) => ({
       showAnswer: !state.showAnswer,
